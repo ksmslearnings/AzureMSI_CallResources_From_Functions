@@ -1,0 +1,16 @@
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Debug\netcoreapp2.1\appsettings.Development.json
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Debug\netcoreapp2.1\appsettings.json
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Debug\netcoreapp2.1\WebApplication1.deps.json
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Debug\netcoreapp2.1\WebApplication1.runtimeconfig.json
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Debug\netcoreapp2.1\WebApplication1.runtimeconfig.dev.json
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Debug\netcoreapp2.1\WebApplication1.dll
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Debug\netcoreapp2.1\WebApplication1.pdb
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.RazorAssemblyInfo.cache
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.RazorAssemblyInfo.cs
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.AssemblyInfoInputs.cache
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.AssemblyInfo.cs
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.RazorTargetAssemblyInfo.cache
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.dll
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.pdb

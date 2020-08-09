@@ -1,0 +1,17 @@
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Release\netcoreapp2.1\appsettings.Development.json
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Release\netcoreapp2.1\appsettings.json
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Release\netcoreapp2.1\Properties\launchSettings.json
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Release\netcoreapp2.1\kstestapi.deps.json
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Release\netcoreapp2.1\kstestapi.runtimeconfig.json
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Release\netcoreapp2.1\kstestapi.runtimeconfig.dev.json
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Release\netcoreapp2.1\kstestapi.dll
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\bin\Release\netcoreapp2.1\kstestapi.pdb
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Release\netcoreapp2.1\kstestapi.csprojAssemblyReference.cache
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Release\netcoreapp2.1\kstestapi.RazorAssemblyInfo.cache
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Release\netcoreapp2.1\kstestapi.RazorAssemblyInfo.cs
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Release\netcoreapp2.1\kstestapi.AssemblyInfoInputs.cache
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Release\netcoreapp2.1\kstestapi.AssemblyInfo.cs
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Release\netcoreapp2.1\kstestapi.RazorTargetAssemblyInfo.cache
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Release\netcoreapp2.1\kstestapi.dll
+E:\Blogging\Projects\AzureFunction\KSFunctionApp\WebApplication1\obj\Release\netcoreapp2.1\kstestapi.pdb
