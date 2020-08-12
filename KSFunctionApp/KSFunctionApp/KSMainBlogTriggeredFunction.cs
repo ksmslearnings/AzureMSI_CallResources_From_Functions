@@ -168,7 +168,7 @@ namespace KSFunctionApp
 
 
             CloudStorageAccount storage = new CloudStorageAccount(storageCredentials, storageAcctName, "core.windows.net", true);
-            //CloudStorageAccount storage = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=ksteststorageaccount1234;AccountKey=kar+IY4xmbUPAKm53hWFhbibTnrqsyiQAQn89di+sZBN9b1AdIOc70DjiD4RMupJutKrSxsbJpOaNVcZqAJOrQ==;EndpointSuffix=core.windows.net");
+            //CloudStorageAccount storage = CloudStorageAccount.Parse(connection string os storage account);
 
             CloudBlobClient c = storage.CreateCloudBlobClient();
 

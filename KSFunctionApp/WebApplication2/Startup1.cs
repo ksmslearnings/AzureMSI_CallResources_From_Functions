@@ -28,7 +28,7 @@ namespace WebApplication2
                     TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidAudience = ConfigurationManager.AppSettings["Audience"],
-                        ValidIssuer = "https://sts.windows.net/a96e24b8-35e7-49ef-945f-ebac58e77e32/"
+                        ValidIssuer = "Issuer of token which can seen from token decoding."
                     }
                 });
 
