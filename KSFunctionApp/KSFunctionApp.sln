@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSFunctionApp", "KSFunctionApp\KSFunctionApp.csproj", "{28F13F54-D1DD-445C-A4F1-1AA4380AACB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSFunctionApp", "KSFunctionApp\KSFunctionApp.csproj", "{28F13F54-D1DD-445C-A4F1-1AA4380AACB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kstestapi", "WebApplication1\kstestapi.csproj", "{3B7D6FEE-74C0-4FBB-884A-3F4BBFD99204}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "kstestapi", "WebApplication1\kstestapi.csproj", "{3B7D6FEE-74C0-4FBB-884A-3F4BBFD99204}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{D54759A3-73B2-4310-8351-D632A25FBD41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3B7D6FEE-74C0-4FBB-884A-3F4BBFD99204}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B7D6FEE-74C0-4FBB-884A-3F4BBFD99204}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B7D6FEE-74C0-4FBB-884A-3F4BBFD99204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D54759A3-73B2-4310-8351-D632A25FBD41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D54759A3-73B2-4310-8351-D632A25FBD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D54759A3-73B2-4310-8351-D632A25FBD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D54759A3-73B2-4310-8351-D632A25FBD41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

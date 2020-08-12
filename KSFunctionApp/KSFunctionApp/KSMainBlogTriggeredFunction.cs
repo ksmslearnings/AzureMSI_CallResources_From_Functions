@@ -18,11 +18,15 @@ namespace KSFunctionApp
     public static class KSMainBlogTriggeredFunction
     {
         static ILogger logger = null;
+        static string debugMode = string.Empty;
+        static AzureServiceTokenProvider tokenProvider = null;
 
         [FunctionName("KSMainBlogTriggeredFunction")]
         public static void Run([BlobTrigger("samplecontainer/{name}", Connection = "AzureWebJobsStorage")]Stream myBlob, string name, ILogger log)
         {
             logger = log;
+            debugMode = Environment.GetEnvironmentVariable("DebugMode");
+            //RunAs=App
 
             log.LogInformation("Function Started");
 
@@ -46,11 +50,14 @@ namespace KSFunctionApp
                 logger.LogInformation($"Blog item URL is : {item.Uri.AbsoluteUri}");
             }
 
-            logger.LogInformation("Calling Web API with Auth Header");
-            CallWebAPIAppWithAndWithoutAuthHeader(true);
+        
 
-            logger.LogInformation("Calling Web API without Auth Header");
-            CallWebAPIAppWithAndWithoutAuthHeader(false);
+
+            logger.LogInformation("Calling Web API with Auth Header");
+            CallWebAPIAppWithAndWithoutAuthHeader();
+
+            // logger.LogInformation("Calling Web API without Auth Header");
+            //CallWebAPIAppWithAndWithoutAuthHeader(false);
 
 
             log.LogInformation("Function Ended");
@@ -64,32 +71,78 @@ namespace KSFunctionApp
             //var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
         }
 
-        private static async void CallWebAPIAppWithAndWithoutAuthHeader(bool headerPassed)
+        private static void CallWebAPIAppWithAndWithoutAuthHeader()
         {
             try
             {
                 logger.LogInformation("Calling HttpClinet to Call Web API and Passing Auth Header");
                 //hhttps://kstestapi.azurewebsites.net
                 HttpClient c = new HttpClient();
-                if (headerPassed == true)
+
+                if (debugMode == "true")
                 {
-                    AzureServiceTokenProvider tokenProvider = new AzureServiceTokenProvider();
-                    //"9d9965ff-1c98-42b6-8e3b-1a9e836d14e4"
-                    string accessToken = tokenProvider.GetAccessTokenAsync("9d9965ff-1c98-42b6-8e3b-1a9e836d14e4").Result;
-                    
-                    c.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
+                    logger.LogInformation("using debug mode tokenprovider");
+                    tokenProvider = new AzureServiceTokenProvider("RunAs=Developer; DeveloperTool=AzureCli");
                 }
-                var responseMessage = await c.GetAsync("https://calledkstestapi.azurewebsites.net/api/values");
+                else
+                {
+                    logger.LogInformation("using production mode tokenprovider");
+                    tokenProvider = new AzureServiceTokenProvider("RunAs=App");
+                }
+                //AzureServiceTokenProvider tokenProvider = new AzureServiceTokenProvider("RunAs=Developer; DeveloperTool=AzureCli");
+                //HERE WE ARE GETTING TOKEN FOR CUSTOM APP REGISTRATION & locally Azure CLI client has been registered as client application
+                //to access the identity tokens based on App Id
+
+                //Calling App Registration ID based
+                //string accessToken = tokenProvider.GetAccessTokenAsync("f8055948-e344-41ec-a139-9ccca2799127").Result;
+
+                //OR
+
+                /*  Remove later.
+                 *
+                //Calling Managed Identity and Trying with this - Localy unable to get the token due to Azure CLI not trusted to access tokens.
+                logger.LogInformation("calling managed identity of Web API to get auth token from Azure AD for called API managed identity");
+                string accessToken = tokenProvider.GetAccessTokenAsync("a51a50c9-8afa-4c50-bffb-5c370e633a48").Result; //unable to get it locally but.
+
+                
+                c.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
+
+                var responseMessage = c.GetAsync("hhttps://calledkstestapi.azurewebsites.net/api/values").Result;
                 if (responseMessage.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    var response = responseMessage.Content.ReadAsStringAsync().Result;
-                    logger.LogInformation("Calling HttpClinet completed");
+                    var response = responseMessage.Content.ReadAsStringAsync().Result;                   
                     logger.LogInformation($"Response returned from Http call was {response}");
                 }
                 if (responseMessage.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 {
                     logger.LogInformation("Request is UnAuthorized token is not passed");
                 }
+                
+                 */
+
+
+                ///repeat for asp.net web api - Next step will be to call with managed identity of actual webapi instance in azure
+                //Calling Managed Identity and Trying with this.
+                logger.LogInformation("calling app registration token for web api");
+                HttpClient cc = new HttpClient();
+                //string accessToken = tokenProvider.GetAccessTokenAsync("hhttps://kstestorganization.onmicrosoft.com/testaspnetfxwebapi").Result;
+
+                string accessToken = tokenProvider.GetAccessTokenAsync("da7ecb1a-651c-4c62-9c24-27be3d518340").Result;
+
+                cc.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
+
+                var responseMessage = cc.GetAsync("https://localhost:44351//api/testing").Result;
+                if (responseMessage.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var response = responseMessage.Content.ReadAsStringAsync().Result;
+                    logger.LogInformation($"Response returned from Http call was {response}");
+                }
+                if (responseMessage.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    logger.LogInformation("Request is UnAuthorized token is not passed");
+                }
+
+                logger.LogInformation("Calling HttpClinet completed");
 
                 //return await response;
             }
@@ -145,7 +198,17 @@ namespace KSFunctionApp
 
         private static async Task<string> GetAccessTokenAsync()
         {
-            var tokenProvider = new AzureServiceTokenProvider();
+            if (debugMode == "true")
+            {
+                logger.LogInformation("using debug mode tokenprovider");
+                tokenProvider = new AzureServiceTokenProvider("RunAs=Developer; DeveloperTool=AzureCli");
+            }
+            else
+            {
+                logger.LogInformation("using production mode tokenprovider");
+                tokenProvider = new AzureServiceTokenProvider("RunAs=App");
+            }
+
             return await tokenProvider.GetAccessTokenAsync("https://storage.azure.com/");
         }
     }
